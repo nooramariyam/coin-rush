@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cymfkv8nj42sk"]
+
+[ext_resource type="Script" uid="uid://1c336xu8li5v" path="res://scripts/coin.gd" id="1_c"]
+[ext_resource type="Texture2D" uid="uid://cufqiwnhfrv5d" path="res://assets/tilemap_packed.png" id="2_i64fm"]
+
+[sub_resource type="CircleShape2D" id="shape_c"]
+radius = 6.0
+
+[node name="Coin" type="Area2D" unique_id=1720221978]
+script = ExtResource("1_c")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=306069197]
+color = Color(1, 0.85, 0.15, 1)
+polygon = PackedVector2Array(0, -6, 6, 0, 0, 6, -6, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2043887979]
+shape = SubResource("shape_c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1613721877]
+texture = ExtResource("2_i64fm")
+hframes = 12
+vframes = 11
+frame = 102
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
